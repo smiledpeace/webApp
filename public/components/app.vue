@@ -1,6 +1,5 @@
 <template>
-    <div class="test">
-    <div class="more"></div>
+    <div class="test" contenteditable="true">
     </div>
 </template>
 <style scoped lang="less" rel="stylesheet/less">
@@ -9,9 +8,10 @@
     }
 </style>
 <script>
+    import {getData} from '../js/api';
     export default {
         mounted () {
-
+            getData();
         },
         data () {
             return {}
