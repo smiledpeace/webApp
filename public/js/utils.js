@@ -30,8 +30,8 @@ const utils = {
         });
         $body.appendChild($iframe);
     },
-    getCss (el, style) {
-
+    getCss (o, key) {
+        return o.currentStyle? o.currentStyle[key] : document.defaultView.getComputedStyle(o,false)[key];
     }
 };
 
