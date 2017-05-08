@@ -28,9 +28,40 @@ const utils = {
         });
         $body.appendChild($iframe);
     },
-    getCss (o, key) {
+    getCss (o,key){
         return o.currentStyle? o.currentStyle[key] : document.defaultView.getComputedStyle(o,false)[key];
-    }
+    },
+    /**
+     * 对象的深度复制
+     * @param obj
+     * @returns {{}}
+     */
+    objectDepthCopy: function (obj) {
+        let temp = null;
+        if (obj && !(obj instanceof Array)) {
+            temp = {};
+            for (let item in obj) {
+                if (obj[item] && typeof obj[item] == 'object') {
+                    //if(item == '')
+                    temp[item] = this.objectDepthCopy(obj[item]);
+                } else {
+                    temp[item] = obj[item];
+                }
+            }
+        } else {
+            temp = [];
+            if (obj) {
+                for (let i = 0, _i = obj.length; i < _i; i++) {
+                    if (obj[i] && typeof obj[i] == 'object') {
+                        temp[i] = this.objectDepthCopy(obj[i]);
+                    } else {
+                        temp[i] = obj[i];
+                    }
+                }
+            }
+        }
+        return temp;
+    },
 };
 
 export default utils;

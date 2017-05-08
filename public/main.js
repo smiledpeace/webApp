@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import app from './components/app.vue';
+import store from './vuex/store';
+require('./style/test.less');
 require('./style/yui.less');
 require('./style/style.less');
 // require('./js/test');
@@ -60,6 +62,7 @@ Vue.directive('focus', function (el, binding){
 });
 new Vue({
     el: "#app",
+    store,
     // template: '<demo :level="1"></demo>',
     data: {
         items: []
