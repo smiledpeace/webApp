@@ -1,7 +1,16 @@
 import utils from './utils';
 
-export const getData = function () {
+export const getData = function (cb) {
+    utils.ajaxQuery('/query/getData','', function (res) {
+        if (cb && typeof cb === 'function') {
+            cb(res);
+        }
+    })
+};
+export const getList = function (cb) {
     utils.ajaxQuery('/query/getList','', function (res) {
-        console.log(res);
+        if (cb && typeof cb === 'function') {
+            cb(res);
+        }
     })
 };

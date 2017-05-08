@@ -5,10 +5,8 @@ Vue.use(VueResource);
 const utils = {
     ajaxQuery (url, params ,sucBack, errBack) {
         Vue.http.post(url, params).then(function (res) {
-            if (res.result === 'TRUE') {
-                if (sucBack && typeof sucBack === 'function') {
-                    sucBack(res);
-                }
+            if (sucBack && typeof sucBack === 'function') {
+                sucBack(res);
             }
         }).catch(function () {
             errBack()

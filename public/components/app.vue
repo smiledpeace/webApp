@@ -1,5 +1,12 @@
 <template>
-    <div class="test" contenteditable="true">
+    <div class="yui_app">
+
+        <!--<selection :items="items" :other-back="somethingElse"></selection>-->
+
+        <!--<accordion :items="items"></accordion>-->
+        <div class="y_font20 y_text" ref="div">TEXT SHADOW</div>
+        <input type="number" v-focus:foo ref="input">
+        <div class="y_test">12312</div>
     </div>
 </template>
 <style scoped lang="less" rel="stylesheet/less">
@@ -8,16 +15,35 @@
     }
 </style>
 <script>
-    import {getData} from '../js/api';
+    import {getData, getList} from '../js/api';
+    import selection from './selection.vue';
+    import accordion from './accordion.vue';
+    import tranTest from './tranTest.vue';
+
+    import style from '../style/yui.less';
     export default {
-        mounted () {
-            getData();
+        created () {
+            getList(res => {
+                this.items = res.data.data;
+            });
+            console.log(this.$refs);
         },
         data () {
-            return {}
+            return {
+                items: [],
+                style
+            }
         },
-        methods: {},
+        methods: {
+            somethingElse (e) {
+                console.log(e);
+                alert(e.target.innerHTML)
+            }
+         },
         props: [],
-        components: {}
+        components: {
+            selection,
+            tranTest
+        }
     }
 </script>

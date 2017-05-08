@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 const loaders = [
     {
         test: /\.js$/,
@@ -12,18 +13,21 @@ const loaders = [
     },
     {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader!less-loader?modules'}),
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?minimize!less-loader!postcss-loader?modules'}),
     },
     {
         test: /\.less/,
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader!less-loader?modules'}),
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?minimize!less-loader!postcss-loader?modules'}),
     },
     {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
             loaders: {
-                less: ExtractTextPlugin.extract({fallback: 'vue-style-loader', use: 'css-loader!less-loader'}),
+                less: ExtractTextPlugin.extract({
+                    fallback: 'vue-style-loader',
+                    use: 'css-loader?minimize!less-loader!postcss-loader'
+                }),
             },
         }
     },
@@ -46,7 +50,15 @@ module.exports = {
     },
     plugins: [
         // new webpack.optimize.UglifyJsPlugin({minimize: true}),
-        new ExtractTextPlugin("style.css")
+        new ExtractTextPlugin("style.css"),
+        new webpack.LoaderOptionsPlugin({
+            debug: false,
+            options: {
+                postcss: [
+                    autoprefixer()
+                ],
+            },
+        })
     ],
     watch: true
 };
