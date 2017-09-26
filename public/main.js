@@ -1,6 +1,11 @@
 import Vue from 'vue';
 import app from './components/app.vue';
+import test from './components/test.vue';
+
+import dir from './components/directive.vue';
 import store from './vuex/store';
+import vueUtil from './js/vueUtil.js';
+import iview from './js/libs/iview2.0.0.js';
 require('./style/yui.less');
 require('./style/style.less');
 // require('./js/test');
@@ -59,6 +64,8 @@ Vue.component('demo', {
 Vue.directive('focus', function (el, binding){
     console.log(binding);
 });
+Vue.use(iview);
+Vue.use(vueUtil);
 new Vue({
     el: "#app",
     store,
@@ -67,7 +74,9 @@ new Vue({
         items: []
     },
     components: {
-        app
+        app,
+        test,
+        dir
     }
 
 });
@@ -80,5 +89,3 @@ function getChildrenTextContent(children) {
             : node.text
     }).join('');
 };
-
-

@@ -29,7 +29,7 @@ const utils = {
         $body.appendChild($iframe);
     },
     getCss (o,key){
-        return o.currentStyle? o.currentStyle[key] : document.defaultView.getComputedStyle(o,false)[key];
+        return o.currentStyle ? o.currentStyle[key] : document.defaultView.getComputedStyle(o,false)[key];
     },
     /**
      * 对象的深度复制

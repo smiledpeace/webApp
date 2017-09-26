@@ -1,3 +1,6 @@
+html, body {
+    height: 100%;
+}
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -5,10 +8,89 @@ body,h1,h2,h3,h4,h5,h6,p,ul,ol,li {
     padding: 0;
     margin: 0;
 }
+#app {
+    height: 100%;
+    overflow: hidden;
+}
 ul {
     list-style: none;
 }
 a {
     color: #00B7FF;
     text-decoration: none;
+}
+.template__header {
+    height: 50px;
+    border-bottom: 1px solid #dadada;
+    display: flex;
+    align-items: center;
+    padding:0 20px;
+}
+.template__header__title {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 400;
+}
+.template__header__close {
+    display: block;
+    font-size: 24px;
+}
+.template__body {
+    flex: 1;
+    overflow: auto;
+    padding: 20px 4px 20px 20px;
+}
+.template__footer {
+    height: 50px;
+    border-top: 1px solid #dadada;
+    padding:0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.template__footer button, .template__header button {
+    margin-left: 16px;
+}
+.template__header .ivu-select{
+    width: 240px;
+    margin-left: 16px;
+}
+#template__app, #template__app--detail {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+#template__app--detail .ivu-form-item .ivu-form-item-label {
+    font-weight: 600;
+}
+
+#template__app--list {
+    height: 100%;
+}
+#template__app--list main {
+    height: ~'calc(100% - 50px)';
+    padding: 0;
+    display: flex;
+}
+
+#template__app--list main aside {
+    height: 100%;
+    width: 240px;
+    border-right: 1px solid #dddee1;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.ivu-table::after {
+    width: 0;
+}
+#template__app--list main .template__body {
+    padding: 0 15px;
+}
+.ivu-table-cell span {
+    font-size: 12px;
 }
