@@ -1,7 +1,7 @@
 {
   "use": [],
-  "input": "public/style/yui.less",
-  "output": "public/style/test.css",
+//  "input": "public/style/yui.less",
+//  "output": "public/style/test.css",
   "local-plugins": true,
   "watch": true
 }

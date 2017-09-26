@@ -1,12 +1,14 @@
 <template>
-    <div class="yui_app">
+    <div class="">
 
         <!--<selection :items="items" :other-back="somethingElse"></selection>-->
 
         <!--<accordion :items="items"></accordion>-->
-        <div class="y_font20 y_text" ref="div">TEXT SHADOW</div>
-        <input type="number" v-focus:foo ref="input">
-        <div class="y_test">12312</div>
+        <!--<div class="y_font20 y_text" ref="div">TEXT SHADOW</div>-->
+        <!--<input type="number" v-focus:foo ref="input">-->
+        <!--<div class="y_test">12312</div>-->
+
+        <hover-show :show-type="2"></hover-show>
     </div>
 </template>
 <style scoped lang="less" rel="stylesheet/less">
@@ -19,7 +21,7 @@
     import selection from './selection.vue';
     import accordion from './accordion.vue';
     import tranTest from './tranTest.vue';
-
+    import hoverShow from './hoverShow.vue';
     import style from '../style/yui.less';
     export default {
         created () {
@@ -43,7 +45,8 @@
         props: [],
         components: {
             selection,
-            tranTest
+            tranTest,
+            hoverShow
         }
     }
 </script>

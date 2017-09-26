@@ -13,11 +13,11 @@ const loaders = [
     },
     {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?minimize!less-loader!postcss-loader?modules'}),
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?minimize!less-loader?modules'}),
     },
     {
         test: /\.less/,
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?minimize!less-loader!postcss-loader?modules'}),
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?minimize!less-loader?modules'}),
     },
     {
         test: /\.vue$/,
@@ -26,7 +26,7 @@ const loaders = [
             loaders: {
                 less: ExtractTextPlugin.extract({
                     fallback: 'vue-style-loader',
-                    use: 'css-loader?minimize!less-loader!postcss-loader'
+                    use: 'css-loader?minimize!less-loader'
                 }),
             },
         }
